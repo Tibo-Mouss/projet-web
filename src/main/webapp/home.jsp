@@ -1,4 +1,6 @@
-
+<%@
+  import="org.jboss.as.User"
+%>
 
 <html>
 <head>
@@ -38,7 +40,8 @@
       <th>
         <a id="categories" href="categories.html">Cat&eacutegories</a>
       </th>
-      <% String username = (String) request.getAttribute("username");
+      <% User user = (User) facade.getLoggedUser();
+      String username = user.getUsername();
         if (username != null) { %>
           <th>
             <a href="ma_liste.html">Ma liste</a>
