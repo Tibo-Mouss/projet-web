@@ -2,6 +2,7 @@ package org.jboss.as.quickstarts.helloworld;
 
 import java.io.IOException;
 
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +19,8 @@ import org.jboss.as.FacadeTheComeback;
 @WebServlet("/Servlet")
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	@EJB
 	private FacadeTheComeback facade;
        
     /**
