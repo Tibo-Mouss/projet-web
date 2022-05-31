@@ -64,7 +64,7 @@ public class FacadeTheComeback {
 
     public boolean login(String id, String pswd){
         User usr = em.find(User.class, id);
-        return this.users.contains(usr);
+        return usr != null;
     }
 
     public boolean register(String idUser, String pswd){
