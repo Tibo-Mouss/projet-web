@@ -29,6 +29,10 @@ public class FacadeTheComeback {
         return this.logged_user;
     }
 
+    public boolean isLogged() {
+        return (logged_user != null)
+    }
+
     public void addReview(int idUser, int idManga, int grade, String text){
         Review rev = new Review();
         rev.setAuthor(em.find(User.class, idUser));
