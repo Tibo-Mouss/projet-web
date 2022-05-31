@@ -68,9 +68,9 @@ public class FacadeTheComeback {
     }
 
     public boolean register(String idUser, String pswd){
-        if (em.find(User.class, idUser) == null){
+        if (em.find(User.class, idUser) != null){
             return false;
-        }else{
+        } else{
             User usr = new User();
             usr.setPassword(pswd);
             usr.setUsername(idUser);

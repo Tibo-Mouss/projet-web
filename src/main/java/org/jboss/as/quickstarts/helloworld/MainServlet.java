@@ -96,8 +96,10 @@ public class MainServlet extends HttpServlet {
 					request.setAttribute("username", username);
 					RequestDispatcher disp = request.getRequestDispatcher("home.jsp");
 					disp.forward(request,response);
+				} else if (op.equals("login")) {
+					response.getWriter().println("<html><body> Erreur de login, mauvais mot de passe ou username non existant.</body></html>");
 				} else {
-					response.getWriter().println("<html><body> Erreur de login / register, mauvais mot de passe ou username non existant.</body></html>");
+					response.getWriter().println("<html><body> Erreur de register, mauvais mot de passe ou username non existant.</body></html>");
 				}
 			break;
 
