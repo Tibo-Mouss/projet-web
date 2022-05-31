@@ -15,6 +15,7 @@ public class FacadeTheComeback {
     
     private List<Manga> mangas = new ArrayList();
     private List<User> users = new ArrayList();
+    private User logged_user = null;
 
     public List<User> getUsers() {
         return users;
@@ -22,6 +23,10 @@ public class FacadeTheComeback {
 
     public List<Manga> getMangas() {
         return mangas;
+    }
+
+    public User getLoggedUser(){
+        return this.logged_user;
     }
 
     public void addReview(int idUser, int idManga, int grade, String text){
@@ -64,7 +69,16 @@ public class FacadeTheComeback {
 
     public boolean login(String id, String pswd){
         User usr = em.find(User.class, id);
-        return usr != null;
+        if ( usr == null){
+            return false;
+        } else {
+            this.logged_user = usr;
+            return true;
+        }
+    }
+
+    public void logout(){
+        this.logged_user = null;
     }
 
     public boolean register(String idUser, String pswd){
