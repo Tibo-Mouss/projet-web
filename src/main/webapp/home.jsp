@@ -1,5 +1,5 @@
 <%@
-  import="org.jboss.as.User"
+  import="java.org.jboss.as.User"
 %>
 
 <html>
@@ -24,7 +24,7 @@
 
 
 <div class="main_title">
-  <a href="index.html">Scans Reader</a>
+  <a href="home.jsp">Scans Reader</a>
 </div>
 
 <!-- <script src="top_bar_text.js"></script> -->
@@ -40,7 +40,8 @@
       <th>
         <a id="categories" href="categories.html">Cat&eacutegories</a>
       </th>
-      <% User user = (User) facade.getLoggedUser();
+      <% 
+      User user = (User) facade.getLoggedUser();
       String username = user.getUsername();
         if (username != null) { %>
           <th>

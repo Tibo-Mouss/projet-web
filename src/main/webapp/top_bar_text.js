@@ -5,7 +5,7 @@ document.write(`
   <tbody>
     <tr>
       <th>
-        <a href="index.html">
+        <a href="home.jsp">
           <img class="house_homepage" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"/>
         </a>
       </th>
