@@ -102,6 +102,7 @@ public class MainServlet extends HttpServlet {
 					response.getWriter().println("<html><body> Erreur de register, mauvais mot de passe ou username non existant.</body></html>");
 				}
 			break;
+				
 
 			default:
 			break;

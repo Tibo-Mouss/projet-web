@@ -43,8 +43,9 @@
           <th>
             <a href="ma_liste.html">Ma liste</a>
           </th>
+
           <th>
-            <a id="login_register" href="login.html"> <%=username%> </a>
+            <a id="login_register" href="home.jsp"> <%=username%> - Deconnexion </a>
           </th>
       <% } else { %>
         <th>
