@@ -2,7 +2,6 @@ package org.jboss.as.quickstarts.helloworld;
 
 import java.io.IOException;
 
-import javax.lang.model.util.ElementScanner14;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -61,6 +60,7 @@ public class MainServlet extends HttpServlet {
 				response.getWriter().println("<html><body>L'username : " +
 				"Erreur, l'op spécifié n'est pas pris en charge"
 				+ "</body></html>");
+			break;
 		}
 		
 	}
@@ -96,6 +96,9 @@ public class MainServlet extends HttpServlet {
 				} else {
 					response.getWriter().println("<html><body> Erreur de login / register, mauvais mot de passe ou username non existant.</body></html>");
 				}
+			break;
+
+			default:
 			break;
 		}
 
