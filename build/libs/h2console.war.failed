@@ -1,2 +1,0 @@
-{"WFLYCTL0080: Failed services" => {"jboss.deployment.unit.\"h2console.war\".undertow-deployment.UndertowDeploymentInfoService" => "Failed to start service
-    Caused by: java.lang.NoClassDefFoundError: Failed to link org/h2/server/web/WebServlet (Module \"com.h2database.h2\" version 1.4.197 from local module loader @488d1cd7 (finder: local module finder @68dc098b (roots: /opt/jboss/wildfly/modules,/opt/jboss/wildfly/modules/system/layers/base))): javax/servlet/http/HttpServlet"}}

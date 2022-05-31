@@ -1,3 +1,0 @@
-{"WFLYCTL0080: Failed services" => {"jboss.persistenceunit.\"backend.war#helloworld\"" => "javax.persistence.PersistenceException: [PersistenceUnit: helloworld] Unable to build Hibernate SessionFactory
-    Caused by: javax.persistence.PersistenceException: [PersistenceUnit: helloworld] Unable to build Hibernate SessionFactory
-    Caused by: org.hibernate.MappingException: Could not determine type for: java.util.List, at table: Manga, for columns: [org.hibernate.mapping.Column(chapters)]"}}
