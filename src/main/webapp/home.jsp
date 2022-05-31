@@ -1,4 +1,6 @@
-
+<%@
+  import="org.jboss.as.*"
+%>
 
 <html>
 <head>
