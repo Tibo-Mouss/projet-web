@@ -30,7 +30,7 @@ public class FacadeTheComeback {
     }
 
     public boolean isLogged() {
-        return (logged_user != null)
+        return (logged_user != null);
     }
 
     public void addReview(int idUser, int idManga, int grade, String text){
