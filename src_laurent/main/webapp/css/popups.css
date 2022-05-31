@@ -1,0 +1,27 @@
+.popup {
+    display: none;
+    background: #fff;
+    box-shadow: 0px 0px 1rem #3333;
+
+    padding: 2rem;
+    width: 40rem;
+
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    margin-left: -20rem;
+
+    font-size: 25px;
+    text-align: center;
+}
+
+.popup > button {
+    cursor: pointer;
+}
+
+.popup .close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 18px;
+}

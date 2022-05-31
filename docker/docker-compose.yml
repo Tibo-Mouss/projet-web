@@ -1,0 +1,53 @@
+version: "3"
+
+services:
+  app:
+    hostname: wildfly
+    container_name: wildfly
+    build:
+      context: .
+      network: host
+    environment:
+      - WILDFLY_USER=${WILDFLY_ADMIN_USER}
+      - WILDFLY_PASS=${WILDFLY_ADMIN_PASS}
+      - DB_NAME=${MYSQL_DATABASE}
+      - DB_USER=${MYSQL_USER}
+      - DB_PASS=${MYSQL_PASSWORD}
+      - DB_URI=db:3306
+    volumes:
+      - ../build/libs/:/opt/jboss/wildfly/standalone/deployments/
+    ports:
+      - "8080:8080" # application
+      - "9990:9990" # admin console
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    hostname: mariadb
+    container_name: mariadb
+    image: mariadb
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - ./mariadb-init:/docker-entrypoint-initdb.d/ # seed volume
+      - ./mariadb-volume/:/var/lib/mysql/ # data storage
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          'mysqladmin -p$$MYSQL_ROOT_PASSWORD -h localhost ping | grep "mysqld is alive" || exit 1',
+        ]
+      interval: 2s
+      retries: 30
+    restart: unless-stopped
+
+volumes:
+  mariadb-volume:
+    driver: local

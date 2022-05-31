@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+repositories {
+    mavenCentral()
+}
+
+war {
+    archiveName 'backend.war'
+}
+
+dependencies {
+    // Pour pouvoir utiliser les annotations de jboss et tout
+    compileOnly 'javax:javaee-api:8.0.1'
+
+    // pour permettre la persistence des données dans une db
+    implementation 'org.hibernate:hibernate-core:5.4.30.Final'
+
+
+}
+

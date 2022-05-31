@@ -1,0 +1,47 @@
+/* Page description de manga  */
+
+#tableau_description {
+    border : 3px solid;
+    table-layout:fixed;
+}
+
+#tableau_description table,
+#tableau_description tr,
+#tableau_description td,
+#tableau_description tbody {
+    border: 0px solid;
+    width: 50%;
+    text-align: center;
+    table-layout:fixed;
+}
+
+#manga_cover_description {
+    height: 500px;
+    border: 2px white solid;
+}
+
+#texte_description_manga h2,
+#texte_description_manga h3,
+#texte_description_manga h4,
+#texte_description_manga p
+ {
+    text-align: left;
+}
+
+
+
+#tableau_chapitres {
+    margin-left: 10%;
+    border : 2px solid black;
+    width: 80%;
+}
+
+#tableau_chapitres tr {
+    margin-left: 20px;
+}
+
+#lecteur_pdf {
+    width: 90%;
+    margin-left: 5%;
+    height: 95%;
+}

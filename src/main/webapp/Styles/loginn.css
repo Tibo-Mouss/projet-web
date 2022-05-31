@@ -1,0 +1,33 @@
+#form_login {
+    margin: 0 auto;
+    text-align: center;
+    width : 30%;
+
+    
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: lightgray;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+#form_login input {
+    border-radius: 5px;
+    background-color: lightgray;
+}
+
+#form_login button {
+    background-color: lightcoral;
+    border-radius: 4px;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#form_login button:hover {
+    background-color: coral;
+}

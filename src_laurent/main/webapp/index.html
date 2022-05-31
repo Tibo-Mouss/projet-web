@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Pixels</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/pixels.css" />
+        <link rel="stylesheet" href="css/popups.css" />
+        <link rel="stylesheet" href="css/logged-in-out.css" />
+        <script src="js/pixels.js"></script>
+        <script src="js/user.js"></script>
+        <script src="js/loaded.js"></script>
+    </head>
+
+    <body onload="pageLoaded();">
+        <nav>
+            <img src="assets/logo.png" />
+
+            <span class="logged-out">
+                <button onclick="togglePopup('login');">Login</button>
+                <button onclick="togglePopup('signup');">Signup</button>
+
+                <div id="login" class="popup">
+                    <button onclick="togglePopup('login')" class="close">
+                        X
+                    </button>
+
+                    Login
+
+                    <form id="login-form" action="api/user/login" method="post">
+                        <div>
+                            <label>Username</label>
+                            <input type="text" name="username" required />
+                        </div>
+
+                        <div>
+                            <label>Password</label>
+                            <input type="password" name="password" required />
+                        </div>
+
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+
+                <div id="signup" class="popup">
+                    <button onclick="togglePopup('signup')" class="close">
+                        X
+                    </button>
+
+                    Signup
+
+                    <form
+                        id="signup-form"
+                        action="api/user/signup"
+                        method="post"
+                    >
+                        <div>
+                            <label>Username</label>
+                            <input type="text" name="username" required />
+                        </div>
+
+                        <div>
+                            <label>Password</label>
+                            <input type="password" name="password" required />
+                        </div>
+
+                        <button type="submit">Signup</button>
+                    </form>
+                </div>
+            </span>
+
+            <span class="logged-in">
+                <span id="username"></span>
+                <button onclick="togglePopup('wallet');">Wallet</button>
+                <button onclick="userLogout()">Logout</button>
+            </span>
+        </nav>
+
+        <table id="pixels">
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+        </table>
+
+        <div id="buy" class="popup">
+            <button onclick="togglePopup('buy')" class="close">X</button>
+
+            Pixel infos
+
+            <div>
+                <label>Solde</label>
+                <span class="solde"></span>
+            </div>
+
+            <div>
+                <label>Owner</label>
+                <span id="info-owner"></span>
+            </div>
+
+            <div>
+                <label>Description</label>
+                <span id="info-description"></span>
+            </div>
+
+            <div>
+                <label>Price</label>
+                <span id="info-price"></span>
+            </div>
+
+            <form id="buy-form" class="logged-in" method="post">
+                <button type="submit" onclick="updateSolde();">Buy</button>
+            </form>
+        </div>
+
+        <div id="modify" class="popup">
+            <button onclick="togglePopup('modify')" class="close">X</button>
+
+            Modify pixel
+
+            <div>
+                <label>Solde</label>
+                <span class="solde"></span>
+            </div>
+
+            <form id="modify-form" method="post">
+                <div class="data">
+                    <label>Price</label>
+                    <input
+                        type="number"
+                        name="price"
+                        id="modify-price"
+                        required
+                    />
+                </div>
+
+                <div>
+                    <label>Red</label>
+                    <input
+                        type="range"
+                        min="0"
+                        max="255"
+                        step="1"
+                        name="red"
+                        id="modify-red"
+                        required
+                    />
+                </div>
+
+                <div>
+                    <label>Green</label>
+                    <input
+                        type="range"
+                        min="0"
+                        max="255"
+                        step="1"
+                        name="green"
+                        id="modify-green"
+                        required
+                    />
+                </div>
+
+                <div>
+                    <label>Blue</label>
+                    <input
+                        type="range"
+                        min="0"
+                        max="255"
+                        step="1"
+                        name="blue"
+                        id="modify-blue"
+                        required
+                    />
+                </div>
+
+                <div>
+                    <label>Description</label>
+                    <input
+                        type="text"
+                        name="description"
+                        id="modify-description"
+                        required
+                    />
+                </div>
+
+                <button type="submit">Modify</button>
+            </form>
+        </div>
+
+        <div id="wallet" class="popup">
+            <button onclick="togglePopup('wallet')" class="close">X</button>
+
+            Wallet
+
+            <div>
+                <label>Solde</label>
+                <span class="solde"></span>
+            </div>
+
+            <form id="pay-form" action="/api/user/pay" method="post">
+                <div class="data">
+                    <label>Amount</label>
+                    <input type="number" name="amount" required />
+                </div>
+
+                <button type="submit" onclick="updateSolde();">Pay</button>
+            </form>
+        </div>
+    </body>
+</html>
