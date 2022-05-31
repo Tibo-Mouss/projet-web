@@ -15,7 +15,7 @@
     int max_mangas_ligne = 5; //Nombre de mangas max par ligne
     int max_nb_lignes = 4; //nombre de lignes de mangas max affichés 
 
-    FacadeTheComeback facade = MainServlet.facade;
+    FacadeTheComeback facade = org.jboss.as.MainServlet.facade;
 
   %>
 
