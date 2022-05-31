@@ -1,5 +1,5 @@
 <%@
-  import="org.jboss.as.*"
+  import="org.jboss.as.User"
 %>
 
 <html>
