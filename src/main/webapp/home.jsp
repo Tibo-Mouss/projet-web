@@ -1,6 +1,4 @@
-<%@
-  import="org.jboss.as.*"
-%>
+<%@ page import="org.jboss.as.*" %>
 
 <html>
 <head>
