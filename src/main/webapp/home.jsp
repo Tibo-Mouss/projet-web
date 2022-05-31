@@ -38,7 +38,7 @@
       <th>
         <a id="categories" href="categories.html">Cat&eacutegories</a>
       </th>
-      <% String username = request.getAttribute("username");
+      <% String username = (String) request.getAttribute("username");
         if (username != null) { %>
           <th>
             <a href="ma_liste.html">Ma liste</a>
