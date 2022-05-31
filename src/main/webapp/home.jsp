@@ -15,6 +15,8 @@
     int max_mangas_ligne = 5; //Nombre de mangas max par ligne
     int max_nb_lignes = 4; //nombre de lignes de mangas max affichés 
 
+    FacadeTheComeback facade = (FacadeTheComeback) request.getParameter("facade");
+
   %>
 
 </head>
@@ -38,10 +40,10 @@
       <th>
         <a id="categories" href="categories.html">Cat&eacutegories</a>
       </th>
-      <% 
-      User user = (User) facade.getLoggedUser();
-      String username = user.getUsername();
-        if (username != null) { %>
+      <% if (facade != null) {
+        User user = (User) facade.getLoggedUser();
+        String username = user.getUsername();
+       %>
           <th>
             <a href="ma_liste.html">Ma liste</a>
           </th>

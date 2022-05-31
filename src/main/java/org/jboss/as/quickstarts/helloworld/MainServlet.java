@@ -93,6 +93,7 @@ public class MainServlet extends HttpServlet {
 				}
 
 				if (operation_succeeded) {
+					request.setAttribute("facade", facade);
 					RequestDispatcher disp = request.getRequestDispatcher("home.jsp");
 					disp.forward(request,response);
 				} else if (op.equals("login")) {
