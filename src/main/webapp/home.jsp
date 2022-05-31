@@ -45,7 +45,7 @@
           </th>
 
           <th>
-            <a id="login_register" href="login.html"> <%=username%> - Deconnexion </a>
+            <a id="login_register" href="home.jsp"> <%=username%> - Deconnexion </a>
           </th>
       <% } else { %>
         <th>
