@@ -33,12 +33,12 @@
   <tbody>
     <tr>
       <th>
-        <a href="index.html">
+        <a href="Servlet/?op=homepage">
           <img class="house_homepage" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"/>
         </a>
       </th>
       <th>
-        <a id="categories" href="categories.html">Cat&eacutegories</a>
+        <a id="categories" href="categories.jsp">Cat&eacutegories</a>
       </th>
       <% if (facade != null) {
         User user = (User) facade.getLoggedUser();
