@@ -27,19 +27,19 @@
 <body>
 
 <div class="main_title">
-  <a href="Servlet/?op=homepage">Scans Reader</a>
+  <a href="home.jsp">Scans Reader</a>
 </div>
 
 <table class="centered_table top_bar_text">
   <tbody>
     <tr>
       <th>
-        <a href="Servlet/?op=homepage">
+        <a href="home.jsp">
           <img class="house_homepage" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"/>
         </a>
       </th>
       <th>
-        <a id="categories" href="Servlet/?op=categories">Cat&eacutegories</a>
+        <a id="categories" href="categories.jsp">Cat&eacutegories</a>
       </th>
       <% if (facade != null) {
         User user = (User) facade.getLoggedUser();
