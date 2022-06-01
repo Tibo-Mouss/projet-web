@@ -1,4 +1,4 @@
-<%@ page import="org.jboss.as.*, java.util.ArrayList" %>
+<%@ page import="org.jboss.as.*, java.util.ArrayList, java.net.URL" %>
 
 
 <html>
@@ -86,16 +86,14 @@
 
 <br> <br>
 
-<% 
- for (int j = 0; j < 3; j++) { %>
 
   <table class="centered_table" id="tableHomePage">
       <tr>
-        <% for (int i = 0; i < max_mangas_ligne; i++) { %>
+        <% for (Manga m : liste_mangas) { %>
           <td class="box"> <a href="manga_description.html">
           <div class="mouse_hover_image">
-              <img class="manga_cover" src="http://images1.fanpop.com/images/photos/2500000/Death-note-manga-covers-death-note-2531412-691-1024.jpg">
-              <div class="text_on_image">NOM MANGA</div>
+              <img class="manga_cover" src="<%=m.getCover().toString()%>">
+              <div class="text_on_image">m.getTitle()</div>
               <table class="stars">
                 <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Golden_star.svg/640px-Golden_star.svg.png"></td>
                 <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Golden_star.svg/640px-Golden_star.svg.png"></td>
@@ -109,7 +107,7 @@
       </tr>
   </table>
   
-  <% } %>
+
 
 
 </body>

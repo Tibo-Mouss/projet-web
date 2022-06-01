@@ -70,6 +70,10 @@ public class Manga {
     public List<Review> getReviews(){
         return this.reviews;
     }
+
+    public String getTitle() {
+        return this.title;
+    }
     
     public void setTitle(String title) {
         this.title = title;
