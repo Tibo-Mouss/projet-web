@@ -44,7 +44,7 @@ public class MainServlet extends HttpServlet {
 
 		String genre = request.getParameter("genre");
 
-		if (!(genre.isBlank() || genre.isEmpty() || (genre == null))) {
+		if (genre != null) {
 			Genre genre_choisi = Genre.valueOf(genre);
 
 			if (liste_genres.contains(genre_choisi)) {
@@ -77,12 +77,10 @@ public class MainServlet extends HttpServlet {
 				break;
 			case "categories":
 				disp = request.getRequestDispatcher("categories.jsp");
-				disp.forward(request, response);
+				disp.forward(request,response);
 				break;
 			default:
-				response.getWriter().println("<html><body>L'username : " +
-				"Erreur, l'op spécifié n'est pas pris en charge"
-				+ "</body></html>");
+				response.getWriter().println("<html><body> Erreur, l'op spécifié n'est pas pris en charge </body></html>");
 			break;
 		}
 		
