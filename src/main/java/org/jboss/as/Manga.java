@@ -27,7 +27,7 @@ public class Manga {
     @ElementCollection
     private List<Genre> genres = new ArrayList<Genre>();
     
-    private Date publication;
+    private int publication;
     private float grade;
 
     @OneToMany
@@ -59,7 +59,7 @@ public class Manga {
         return this.genres;
     }
 
-    public Date getPublication(){
+    public int getPublication(){
         return this.publication;
     }
 
@@ -99,7 +99,7 @@ public class Manga {
         this.grade = grade;
     }
 
-    public void setPublication(Date publication) {
+    public void setPublication(int publication) {
         this.publication = publication;
     }
 
