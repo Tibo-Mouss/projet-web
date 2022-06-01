@@ -39,7 +39,8 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("facade", facade);		
+		request.setAttribute("facade", facade);	
+		RequestDispatcher disp;	
 
 		String genre = request.getParameter("genre");
 
@@ -54,7 +55,7 @@ public class MainServlet extends HttpServlet {
 
 			request.setAttribute("liste_genres", liste_genres);
 			request.setAttribute("mangas", facade.searchbyGenre(liste_genres));
-			RequestDispatcher disp = request.getRequestDispatcher("categories.jsp");
+			disp = request.getRequestDispatcher("categories.jsp");
 			disp.forward(request,response);
 		}
 
@@ -71,11 +72,11 @@ public class MainServlet extends HttpServlet {
 				" puis c'est un : " + op + "</body></html>");
 				break;
 			case "homepage":
-				RequestDispatcher disp = request.getRequestDispatcher("home.jsp");
+				disp = request.getRequestDispatcher("home.jsp");
 				disp.forward(request, response);
 				break;
 			case "categories":
-				RequestDispatcher disp = request.getRequestDispatcher("categories.jsp");
+				disp = request.getRequestDispatcher("categories.jsp");
 				disp.forward(request, response);
 				break;
 			default:
