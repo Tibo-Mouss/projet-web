@@ -43,7 +43,7 @@
           %>
           <th>
             <form action="ServletCategories" method="get">
-              <button type="submit" value="<%=genre%>" name="op"> <%=genre%>
+              <button type="submit" value="<%=genre%>" name="genre"> <%=genre%>
               <% if(liste_genres != null && liste_genres.contains(org.jboss.as.Genre.valueOf(genre))) { %>
               &#10003;
               <% } %> </button>
