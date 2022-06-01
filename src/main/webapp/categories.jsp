@@ -12,6 +12,12 @@
 
   <%
     int nb_boutons_max_ligne = 7; //Nombre de boutons max par ligne
+    int max_mangas_ligne = 5; //Nombre de mangas max par ligne
+    int max_nb_lignes = 4; //nombre de lignes de mangas max affichés 
+
+    ArrayList<Genre> liste_genres = (ArrayList<Genre>) request.getAttribute("liste_genres");
+
+    ArrayList<Manga> liste_mangas = (ArrayList<Manga>) request.getAttribute("mangas");
 
     FacadeTheComeback facade = (FacadeTheComeback) request.getAttribute("facade");
 
@@ -32,10 +38,15 @@
   <tbody>
     <% for (int j = 0; j < 2; j++) { %>
       <tr>
-        <% for (int i = 0; i < nb_boutons_max_ligne; i++) { %>
+        <% for (int i = 0; i < nb_boutons_max_ligne; i++) { 
+          String genre = org.jboss.as.Genre.values()[i+7*j].toString();
+          %>
           <th>
             <form action="ServletCategories" method="get">
-              <button type="submit" value="register" name="op"> <%=org.jboss.as.Genre.values()[i+7*j].toString()%> </button>
+              <button type="submit" value="<%=genre%>" name="op"> <%=genre%>
+              <% if(liste_genres != null && liste_genres.contains(org.jboss.as.Genre.valueOf(genre))) { %>
+              &#10003;
+              <% } %> </button>
             </form>
           </th>
         <% } %>
@@ -46,6 +57,30 @@
 
 <br> <br>
 
+<% 
+ for (int j = 0; j < max_nb_lignes; j++) { %>
+
+  <table class="centered_table" id="tableHomePage">
+      <tr>
+        <% for (int i = 0; i < max_mangas_ligne; i++) { %>
+          <td class="box"> <a href="manga_description.html">
+          <div class="mouse_hover_image">
+              <img class="manga_cover" src="http://images1.fanpop.com/images/photos/2500000/Death-note-manga-covers-death-note-2531412-691-1024.jpg">
+              <div class="text_on_image">NOM MANGA</div>
+              <table class="stars">
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Golden_star.svg/640px-Golden_star.svg.png"></td>
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Golden_star.svg/640px-Golden_star.svg.png"></td>
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Golden_star.svg/640px-Golden_star.svg.png"></td>
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Golden_star.svg/640px-Golden_star.svg.png"></td>
+                <td><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/BlackStar.PNG"></td>
+              </table>
+          </div>
+          </a></td>
+        <% } %>
+      </tr>
+  </table>
+  
+  <% } %>
 
 
 </body>

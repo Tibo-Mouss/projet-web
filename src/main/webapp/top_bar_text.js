@@ -5,29 +5,23 @@ document.write(`
   <tbody>
     <tr>
       <th>
-        <a href="Servlet/?op=homepage">
+        <a href="home.jsp">
           <img class="house_homepage" src="https://cdn-icons-png.flaticon.com/512/25/25694.png"/>
         </a>
       </th>
       <th>
-        <a id="categories" href="categories.jsp">Cat&eacutegories</a>
+        <a id="categories" href="categories.html">Cat&eacutegories</a>
       </th>
-      <% if (facade != null) {
-        User user = (User) facade.getLoggedUser();
-        String username = user.getUsername();
-       %>
-          <th>
-            <a href="ma_liste.html">Ma liste</a>
-          </th>
-
-          <th>
-            <a id="login_register" href="home.jsp"> <%=username%> - Deconnexion </a>
-          </th>
-      <% } else { %>
-        <th>
-          <a id="login_register" href="login.html">Login / Register</a>
-        </th>
-      <% } %>
+      <th>
+        <a href="ma_liste.html">Ma liste</a>
+      </th>
+      <th id="searchbar">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><img class="loupe_homepage" src="https://www.a-c-c.fr/wp-content/uploads/2014/09/loupe-blanc-min.png"/></button>
+      </th>
+      <th>
+        <a id="login_register" href="login.html">Login / Register</a>
+      </th>
     </tr>
   </tbody>
 </table>

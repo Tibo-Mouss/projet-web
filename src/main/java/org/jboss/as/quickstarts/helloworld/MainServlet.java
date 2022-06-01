@@ -1,6 +1,7 @@
 package org.jboss.as.quickstarts.helloworld;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.jboss.as.FacadeTheComeback;
+import org.jboss.as.Genre;
 
 
 /**
@@ -22,6 +24,8 @@ public class MainServlet extends HttpServlet {
 
 	@EJB
 	private FacadeTheComeback facade;
+
+	private ArrayList<Genre> liste_genres = null;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,14 +39,25 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		/* Exemple calculatrice 
-		String nb1 = request.getParameter("nb1");
-		String nb2 = request.getParameter("nb2");
-		int resultat = Integer.parseInt(nb1) + Integer.parseInt(nb2);
-		response.getWriter().println("<html><body>le resultat est : " + resultat +"</body></html>");
-		*/
+		request.setAttribute("facade", facade);		
+
+		String genre = request.getParameter("genre");
+
+		if (!(genre.isBlank() || genre.isEmpty() || (genre == null))) {
+			Genre genre_choisi = Genre.valueOf(genre);
+
+			if (liste_genres.contains(genre_choisi)) {
+				liste_genres.remove(genre_choisi);
+			} else {
+				liste_genres.add(genre_choisi);
+			}
+
+			request.setAttribute("liste_genres", liste_genres);
+			request.setAttribute("mangas", facade.searchbyGenre(liste_genres));
+			RequestDispatcher disp = request.getRequestDispatcher("categories.jsp");
+			disp.forward(request,response);
+		}
+
 
 		String op = request.getParameter("op");
 
@@ -72,6 +87,9 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("facade", facade);
+		
+		
 		String op = request.getParameter("op");
 
 		
@@ -93,7 +111,6 @@ public class MainServlet extends HttpServlet {
 				}
 
 				if (operation_succeeded) {
-					request.setAttribute("facade", facade);
 					RequestDispatcher disp = request.getRequestDispatcher("home.jsp");
 					disp.forward(request,response);
 				} else if (op.equals("login")) {
