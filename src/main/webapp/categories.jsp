@@ -1,4 +1,4 @@
-<%@ page import="org.jboss.as.*" %>
+<%@ page import="org.jboss.as.*, java.util.ArrayList" %>
 
 
 <html>
