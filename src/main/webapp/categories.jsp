@@ -27,7 +27,7 @@
 <body>
 
 <div class="main_title">
-  <a href="index.html">Scans Reader</a>
+  <a href="Servlet/?op=homepage">Scans Reader</a>
 </div>
 
 <table class="centered_table top_bar_text">
