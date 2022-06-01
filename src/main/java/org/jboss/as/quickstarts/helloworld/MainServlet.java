@@ -25,7 +25,7 @@ public class MainServlet extends HttpServlet {
 	@EJB
 	private FacadeTheComeback facade;
 
-	private ArrayList<Genre> liste_genres = null;
+	private ArrayList<Genre> liste_genres = new ArrayList<>();
        
     /**
      * @see HttpServlet#HttpServlet()
