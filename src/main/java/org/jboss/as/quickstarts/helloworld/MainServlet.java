@@ -45,6 +45,7 @@ public class MainServlet extends HttpServlet {
 		String genre = request.getParameter("genre");
 
 		if (genre != null) {
+			System.out.println("AAAAAAAAAAAAAAAAAA");
 			Genre genre_choisi = Genre.valueOf(genre);
 
 			if (liste_genres.contains(genre_choisi)) {

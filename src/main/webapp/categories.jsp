@@ -86,14 +86,14 @@
 
 <br> <br>
 
-
+  <% if (liste_mangas != null && !liste_mangas.isEmpty()) { %>
   <table class="centered_table" id="tableHomePage">
       <tr>
         <% for (Manga m : liste_mangas) { %>
           <td class="box"> <a href="manga_description.html">
           <div class="mouse_hover_image">
               <img class="manga_cover" src="<%=m.getCover().toString()%>">
-              <div class="text_on_image">m.getTitle()</div>
+              <div class="text_on_image"></div>
               <table class="stars">
                 <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Golden_star.svg/640px-Golden_star.svg.png"></td>
                 <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Golden_star.svg/640px-Golden_star.svg.png"></td>
@@ -107,7 +107,7 @@
       </tr>
   </table>
   
-
+  <% } %>
 
 
 </body>
