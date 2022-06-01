@@ -40,7 +40,7 @@ public class FacadeTheComeback {
         rev.setGrade(grade);
         Manga temp = em.find(Manga.class, idManga);
         temp.getReviews().add(rev);
-        em.persist(temp);
+        em.merge(temp);
     }
 
 
@@ -107,6 +107,15 @@ public class FacadeTheComeback {
     }
     
 
+    public boolean addManga(Manga m){
+        if (em.find(Manga.class, m.getId()) != null){
+            return false;
+        } else{
+            em.persist(m);
+            this.mangas.add(m);
+            return true;
+        }
+    }
     
 
 

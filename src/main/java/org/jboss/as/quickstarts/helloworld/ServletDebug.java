@@ -42,7 +42,6 @@ public class ServletDebug extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		List<Manga> mangas = facade.getMangas();
 		Manga mg1 = new Manga();
 		mg1.setAuthor("Oda Eiichiro");
 		mg1.setTitle("One Piece");
@@ -59,6 +58,8 @@ public class ServletDebug extends HttpServlet {
 			e.printStackTrace();
 		}
 		mg1.setChapters(chapters);
+		facade.addManga(mg1);
+
 		
 		
 		/* Exemple calculatrice 
