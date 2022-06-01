@@ -38,7 +38,7 @@
         </a>
       </th>
       <th>
-        <a id="categories" href="categories.jsp">Cat&eacutegories</a>
+        <a id="categories" href="Servlet/?op=categories">Cat&eacutegories</a>
       </th>
       <% if (facade != null) {
         User user = (User) facade.getLoggedUser();

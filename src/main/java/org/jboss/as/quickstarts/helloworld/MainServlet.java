@@ -74,6 +74,10 @@ public class MainServlet extends HttpServlet {
 				RequestDispatcher disp = request.getRequestDispatcher("home.jsp");
 				disp.forward(request, response);
 				break;
+			case "categories":
+				RequestDispatcher disp = request.getRequestDispatcher("categories.jsp");
+				disp.forward(request, response);
+				break;
 			default:
 				response.getWriter().println("<html><body>L'username : " +
 				"Erreur, l'op spécifié n'est pas pris en charge"
