@@ -17,7 +17,7 @@ import org.jboss.as.FacadeTheComeback;
  * Servlet implementation class ServletTest
  */
 @WebServlet("/ServletCategories")
-public class MainServlet extends HttpServlet {
+public class ServletCategories extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@EJB
@@ -26,7 +26,7 @@ public class MainServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MainServlet() {
+    public ServletCategories() {
         super();
         // TODO Auto-generated constructor stub
     }
