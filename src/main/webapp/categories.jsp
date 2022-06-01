@@ -87,7 +87,7 @@
 <br> <br>
 
 <% 
- for (int j = 0; j < max_nb_lignes; j++) { %>
+ for (int j = 0; j < 3; j++) { %>
 
   <table class="centered_table" id="tableHomePage">
       <tr>
